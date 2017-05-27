@@ -1,7 +1,11 @@
 package com.marriage.servlets;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.marriage.common.Tools;
 
@@ -30,6 +37,14 @@ public class UserServlet extends HttpServlet {
 			register(request, response);
 		} else if (cmd.equals("logout")){
 			logout(request,response);
+		} else if (cmd.equals("edit")){
+			request.getRequestDispatcher("/edit.jsp").forward(request,response);
+		} else if (cmd.equals("toedit")){
+			edit(request,response);
+		} else if (cmd.equals("avatar")){
+			request.getRequestDispatcher("/avatar.jsp").forward(request,response);
+		} else if (cmd.equals("edit_avatar")){
+			edit_avatar(request, response);
 		}
 	}
 
@@ -88,5 +103,67 @@ public class UserServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
 		response.sendRedirect(Tools.Basepath(request, response)+"index.jsp");
+	}
+	
+
+	private void edit(HttpServletRequest request, HttpServletResponse response) {
+		User user = new User();
+		try {
+			BeanUtils.populate(user, request.getParameterMap());
+			user.setUserid(Integer.parseInt(request.getParameter("id")));
+			Integer rtn = dao.edit(user);
+			if (rtn > 0) {
+				request.setAttribute("msg", "更新成功");
+			} else {
+				request.setAttribute("msg", "更新失败");
+			}
+			request.getRequestDispatcher("/user?cmd=edit").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void edit_avatar(HttpServletRequest request, HttpServletResponse response) {
+		User user = new User();
+		user.setUserid(Integer.parseInt(request.getParameter("id")));
+        
+        String uploadPath = "images/avatar/";
+        String tempPath = "images/tmp/";
+        String serverPath = getServletContext().getRealPath("/").replace("\\", "/");  
+        if(!new File(serverPath+uploadPath).isDirectory()){  
+            new File(serverPath+uploadPath).mkdirs();  
+        }  
+        if(!new File(serverPath+tempPath).isDirectory()){  
+            new File(serverPath+tempPath).mkdirs();  
+        }
+        
+        
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        factory.setRepository(new File(serverPath+tempPath));
+        
+        factory.setSizeThreshold(1024*1024);
+        ServletFileUpload upload = new ServletFileUpload(factory);  
+        upload.setSizeMax(-1);
+        
+        String filePath = null;  
+        
+        try {  
+            List<FileItem> list = upload.parseRequest(request);  
+            for(FileItem item : list){  
+                if(!item.isFormField()){
+                	String fileName = item.getName().toLowerCase();
+                	String uuid = UUID.randomUUID().toString();
+                    filePath = serverPath+uploadPath+uuid+fileName.substring(fileName.lastIndexOf("."));
+                    item.write(new File(filePath));
+                    
+                    user.setAvatar(uuid+fileName.substring(fileName.lastIndexOf(".")));
+                    dao.avatar(user);
+                    request.setAttribute("msg", "上传成功！");
+                    request.getRequestDispatcher("/user?cmd=avatar").forward(request, response);
+                }  
+            }  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
 	}
 }

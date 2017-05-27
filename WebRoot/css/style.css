@@ -300,7 +300,8 @@ ul.nav_1 li.last{
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
-	min-height:650px;
+	min-height:450px;
+	position: relative;
 }
 .banner_info{
    margin: 10em 0 0 0;
@@ -365,7 +366,9 @@ ul.nav_1 li.last{
 	text-align: center;
     background-color:rgba(12, 9, 10, 0.29);
     padding: 2em;
-    margin:11em 0 0 0;
+    position: absolute;
+	bottom: 0;
+    left: 0;
 }
 .input-group input[type="text"], select{
     -moz-box-shadow: none;

@@ -5,8 +5,17 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>home</welcome-file>
 	</welcome-file-list>
+	
+	<servlet>
+    	<servlet-name>HomeServlet</servlet-name>
+    	<servlet-class>com.marriage.servlets.HomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>HomeServlet</servlet-name>
+    	<url-pattern>/home</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
     	<servlet-name>UserServlet</servlet-name>

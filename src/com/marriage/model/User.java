@@ -7,13 +7,14 @@ public class User {
 	private String password;
 	private String username;
 	private String sex;
-	private String height;
+	private Float height;
 	private Date birthday;
 	private String detail;
 	private String email;
 	private Boolean marital_situatio;
 	private String role;
 	private String avatar;
+	private Integer age;
 	public Integer getUserid() {
 		return userid;
 	}
@@ -38,10 +39,10 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getHeight() {
+	public Float getHeight() {
 		return height;
 	}
-	public void setHeight(String height) {
+	public void setHeight(Float height) {
 		this.height = height;
 	}
 	public Date getBirthday() {
@@ -81,5 +82,11 @@ public class User {
 	}
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 }

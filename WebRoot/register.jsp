@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</nav>
 				</c:if>
 				</div>
-				<a class="brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+				<a class="brand" href="<%=basePath%>"><img src="images/logo.png" alt="logo"></a>
 				<div class="pull-right">
 					<nav class="navbar nav_bottom" role="navigation">
 						<div class="navbar-header nav_2">
@@ -73,21 +73,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav nav_1">
 								<li><a href="<%=basePath%>">首页</a></li>
-								<c:if test="${user!=null}">
-								<li class="dropdown js-user">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username}<span
+								<li>
+                                    <a href="<%=basePath%>home?cmd=members">会员</a>
+                                </li>
+                                <c:if test="${user!=null}">
+                                    <li class="dropdown js-user">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username}<span
 										class="caret"></span>
 									</a>
-									<ul class="dropdown-menu" role="menu">
-										<li>
-											<a href="<%=basePath%>user?cmd=info">个人中心</a>
-										</li>
-										<li>
-											<a href="<%=basePath%>user?cmd=logout">注销</a>
-										</li>
-									</ul>
-								</li>
-								</c:if>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="<%=basePath%>user?cmd=edit">修改资料</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%=basePath%>user?cmd=avatar">修改头像</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%=basePath%>user?cmd=logout">注销</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </c:if>
 							</ul>
 						</div>
 					</nav>

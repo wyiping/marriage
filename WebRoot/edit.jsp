@@ -9,13 +9,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 
 <head>
-	<title>登录</title>
+	<title>注册</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+	<link href="css/calendar.css" rel='stylesheet' type='text/css' />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-1.5.1.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/calendar.js"></script>
 	<!-- Custom Theme files -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<link href="css/font-awesome.css" rel="stylesheet">
@@ -56,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</nav>
 				</c:if>
 				</div>
-				<a class="brand" href="<%=basePath%>"><img src="images/logo.png" alt="logo"></a>
+				<a class="brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
 				<div class="pull-right">
 					<nav class="navbar nav_bottom" role="navigation">
 						<div class="navbar-header nav_2">
@@ -68,7 +70,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</button>
 							<a class="navbar-brand" href="#"></a>
 						</div>
-						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav nav_1">
 								<li><a href="<%=basePath%>">首页</a></li>
@@ -101,33 +102,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-	<!-- end navbar-inverse-blue -->
-	<!-- ============================  Navigation End ============================ -->
 	<div class="grid_3">
 		<div class="container">
 			<div class="breadcrumb1">
 				<ul>
 					<a href="<%=basePath%>"><i class="fa fa-home home_1"></i></a>
 					<span class="divider">&nbsp;|&nbsp;</span>
-					<li class="current-page">登录</li>
+					<li class="current-page">修改资料</li>
 				</ul>
 			</div>
 			<div class="services">
 				<div class="col-sm-6 col-sm-push-3 login_left">
-					<form action="<%=basePath%>user?cmd=login" method="post">
+					<form action="<%=basePath%>user?cmd=toedit&id=${user.userid}" method="post">
 						<c:if test="${msg!=null}">
-							<div class="alert alert-danger" role="alert">${msg}</div>
+							<center style="color:red;">${msg}</center>
 						</c:if>
-						<div class="form-item form-type-textfield form-item-name">
-							<label for="edit-name">用户名 <span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="username" value="" size="60" maxlength="60" class="form-text required">
+						<div class="form-group">
+							<label for="edit-name">用户名 <span class="form-required">*</span></label>
+							<input type="text" id="edit-name" name="username" value="${user.username}" size="60" maxlength="60" class="form-text required">
 						</div>
-						<div class="form-item form-type-password form-item-pass">
-							<label for="edit-pass">密码 <span class="form-required" title="This field is required.">*</span></label>
-							<input type="password" id="edit-pass" name="password" size="60" maxlength="128" class="form-text required">
+						<div class="form-group">
+							<label for="edit-pass">密码 <span class="form-required">*</span></label>
+							<input type="password" id="edit-pass" name="password" value="${user.password}" size="60" maxlength="128" class="form-text required">
+						</div>
+						<div class="form-group">
+							<label for="edit-email">Email <span class="form-required">*</span></label>
+							<input type="text" id="edit-email" name="email" value="${user.email}" size="60" maxlength="60" class="form-text required">
+						</div>
+						<div class="form-group">
+							<label for="edit-height">身高 <span class="form-required">*</span></label>
+							<input type="text" id="edit-height" name="height" value="${user.height}" size="60" maxlength="60" class="form-text required">
+						</div>
+						<div class="age_select">
+							<label for="edit-bir">出生日期 <span class="form-required">*</span></label>
+							<input type="text" id="edit-bir" name="birthday" value="${user.birthday}" size="60" maxlength="60" class="form-text required">
+						</div>
+						<div class="form-group form-group1">
+							<label class="col-sm-7 control-lable">性别 : </label>
+							<div class="col-sm-5">
+								<div class="radios">
+									<label for="radio-01" class="label_radio">
+										<input type="radio" name="sex" value="male" <c:if test="${user.sex == 'male'}">checked="checked"</c:if>> 男
+									</label>
+									<label for="radio-02" class="label_radio">
+										<input type="radio" name="sex" value="female" <c:if test="${user.sex == 'female'}">checked="checked"</c:if>> 女
+									</label>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="form-group form-group1">
+							<label class="col-sm-7 control-lable">婚姻状态 : </label>
+							<div class="col-sm-5">
+								<div class="radios">
+									<label for="radio-01" class="label_radio">
+										<input type="radio" name="marital_situatio" value="0" <c:if test="${!user.marital_situatio}">checked="checked"</c:if>> 未婚
+									</label>
+									<label for="radio-02" class="label_radio">
+										<input type="radio" name="marital_situatio" value="1" <c:if test="${user.marital_situatio}">checked="checked"</c:if>> 已婚
+									</label>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="form-group">
+							<label for="edit-detail">描述 <span class="form-required">*</span></label>
+							<textarea class="form-control bio" id="detail" name="detail" placeholder="" rows="3">${user.detail}</textarea>
 						</div>
 						<div class="form-actions">
-							<input type="submit" id="edit-submit" name="op" value="登录" class="btn_1 submit">
+							<center><input type="submit" id="edit-submit" value="修改" class="btn_1 submit"></center>
 						</div>
 					</form>
 				</div>
@@ -142,6 +185,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
+	<script>
+		$('#edit-bir').calendar();
+	</script>
 </body>
 
 </html>

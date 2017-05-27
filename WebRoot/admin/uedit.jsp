@@ -22,7 +22,7 @@
 
 	<body class="content1">
 		<script>
-$('#a_leader_txt', parent.document).html('新增用户');
+$('#a_leader_txt', parent.document).html('编辑用户');
 </script>
 		<div class="container-fluid">
 			<div class="row-fluid">

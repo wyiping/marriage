@@ -75,7 +75,7 @@
                                 <li>
                                     <a href="<%=basePath%>">首页</a>
                                 </li>
-                                <li>
+                               <li>
                                     <a href="<%=basePath%>home?cmd=members">会员</a>
                                 </li>
                                 <c:if test="${user!=null}">
@@ -105,110 +105,70 @@
         </div>
     </div>
     <!-- end navbar-inverse-blue -->
-    <div class="banner">
-        <div class="profile_search">
-            <div class="container wrap_1">
-                <form action="<%=basePath%>home?cmd=search" method="post">
-                    <div class="search_top">
-                        <div class="inline-block">
-                            <label class="gender_1">性别:</label>
-                            <div class="age_box1" style="max-width: 100%; display: inline-block;">
-                                <select name="sex">
-                                    <option value="male">男</option>
-                                    <option value="female">女</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="inline-block">
-                            <label class="gender_1">身高:</label>
-                            <div class="age_box1" style="max-width: 100%; display: inline-block;">
-                                <select name="height">
-                                    <option value="160">160</option>
-                                    <option value="165">165</option>
-                                    <option value="170">170</option>
-                                    <option value="175">175</option>
-                                    <option value="180">180</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="inline-block">
-                            <label class="gender_1">婚姻状态 :</label>
-                            <div class="age_box1" style="max-width: 100%; display: inline-block;">
-                                <select name="marital_situatio">
-                                    <option value="0">单身</option>
-                                    <option value="1">已婚</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inline-block">
-                        <div class="age_box2" style="max-width: 220px;">
-                            <label class="gender_1">年龄:</label>
-                            <input class="transparent" style="width: 30%;" type="text" name="age">
-                        </div>
-                    </div>
-                    <div class="submit inline-block">
-                        <input id="submit-btn" class="hvr-wobble-vertical" type="submit" value="寻找">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="grid_1">
-        <div class="container">
-            <h1>随便看看</h1>
-            <div class="heart-divider">
-                <span class="grey-line"></span>
-                <i class="fa fa-heart pink-heart"></i>
-                <i class="fa fa-heart grey-heart"></i>
-                <span class="grey-line"></span>
-            </div>
-            <ul id="flexiselDemo3">
-            <c:forEach items="${s_users}" var="u">
-                <li>
-                    <div class="col_1">
-                        <a href="<%=basePath%>home?cmd=profile&id=${u.userid}">
-                            <img src="<%=basePath%>images/avatar/${u.avatar}" class="hover-animation image-zoom-in img-responsive" onerror="this.src='<c:choose><c:when test="${u.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
-                            <h3>
-                                <span class="m_3">用户 ID : ${u.userid}</span><br>
-                                ${u.age}岁<br>
-                                ${u.height}CM
-                            </h3>
-                        </a>
-                    </div>
-                </li>
-            </c:forEach>
-            </ul>
-            <script type="text/javascript">
-                $(window).load(function () {
-                    $("#flexiselDemo3").flexisel({
-                        visibleItems: 6,
-                        animationSpeed: 1000,
-                        autoPlay: false,
-                        autoPlaySpeed: 3000,
-                        pauseOnHover: true,
-                        enableResponsiveBreakpoints: true,
-                        responsiveBreakpoints: {
-                            portrait: {
-                                changePoint: 480,
-                                visibleItems: 1
-                            },
-                            landscape: {
-                                changePoint: 640,
-                                visibleItems: 2
-                            },
-                            tablet: {
-                                changePoint: 768,
-                                visibleItems: 3
-                            }
-                        }
-                    });
-
-                });
-            </script>
-            <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-        </div>
-    </div>
+    <div class="grid_3">
+		<div class="container">
+			<div class="breadcrumb1">
+				<ul>
+					<a href="<%=basePath%>"><i class="fa fa-home home_1"></i></a>
+					<span class="divider">&nbsp;|&nbsp;</span>
+					<li class="current-page">查找</li>
+				</ul>
+			</div>
+			<div class="col-md-9 profile_left2">
+			<c:forEach items="${users}" var="user">
+				<div class="profile_top">
+					<a href="<%=basePath%>home?cmd=profile&id=${user.userid}">
+						<div class="col-sm-3 profile_left-top">
+							<img src="<%=basePath%>>images/avatar/${user.avatar}" class="img-responsive" onerror="this.src='<c:choose><c:when test="${user.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
+						</div>
+						<div class="col-sm-3">
+							<ul class="login_details1">
+								<li>
+									<p>"${user.detail}" </p>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-6">
+							<table class="table_working_hours">
+								<tbody>
+									<tr class="opened_1">
+										<td class="day_label1">用户:</td>
+										<td class="day_value">${user.username}</td>
+									</tr>
+									<tr class="opened_1">
+										<td class="day_label1">年龄:</td>
+										<td class="day_value">${user.age}岁</td>
+									</tr>
+									<tr class="opened">
+										<td class="day_label1">身高:</td>
+										<td class="day_value">${user.height}CM</td>
+									</tr>
+									<tr class="opened">
+										<td class="day_label1">邮箱:</td>
+										<td class="day_value">${user.email}</td>
+									</tr>
+									<tr class="opened">
+										<td class="day_label1">婚姻状态:</td>
+										<td class="day_value">
+											<c:choose>
+												<c:when test="${user.marital_situatio=='0'}">
+													未婚		
+												</c:when>
+												<c:otherwise>已婚</c:otherwise>
+											</c:choose>										
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="clearfix"> </div>
+					</a>
+				</div>
+			</c:forEach>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
     <div class="footer">
         <div class="container">
             <div class="copy">
