@@ -24,8 +24,8 @@ public class UserDAO implements IUserDAO {
 	}
 
 	public Integer register(User user) {
-		String sql = "insert into user(username,password,sex,height,birthday,detail,email,marital_situatio,role) values(?,?,?,?,?,?,?,?,'user')";
-		return DBUnitHelper.executeUpdate(sql, user.getUsername(), user
+		String sql = "insert into user(username,name,password,sex,height,birthday,detail,email,marital_situatio,role) values(?,?,?,?,?,?,?,?,?,'user')";
+		return DBUnitHelper.executeUpdate(sql, user.getUsername(),user.getName(), user
 				.getPassword(), user.getSex(), user.getHeight(), user
 				.getBirthday(), user.getDetail(), user.getEmail(), user
 				.getMarital_situatio());
@@ -33,10 +33,10 @@ public class UserDAO implements IUserDAO {
 	
 	public Integer edit(User user) {
 		String sql = "update user set" +
-				" username=?,password=?,sex=?,height=?," +
+				" username=?,name=?,password=?,sex=?,height=?," +
 				"birthday=?,email=?,detail=?,marital_situatio=? " +
 				"where userid=?";
-		return DBUnitHelper.executeUpdate(sql,user.getUsername(),user.getPassword(),user.getSex(),user.getHeight(),
+		return DBUnitHelper.executeUpdate(sql,user.getUsername(),user.getName(),user.getPassword(),user.getSex(),user.getHeight(),
 				user.getBirthday(),user.getEmail(),user.getDetail(),user.getMarital_situatio(),user.getUserid());
 	}
 	
@@ -50,11 +50,11 @@ public class UserDAO implements IUserDAO {
 	public List<User> search(User user){
 		String sql = "SELECT *, "+
 			"(year(now())-year(birthday)-1) + ( DATE_FORMAT(birthday, '%m%d') <= DATE_FORMAT(NOW(), '%m%d') ) as age "+
-			"FROM user WHERE "+
-			"sex LIKE ? AND "+
-			"height > ? AND "+
-			"marital_situatio = ? AND "+
-			"(year(now())-year(birthday)-1) + ( DATE_FORMAT(birthday, '%m%d') <= DATE_FORMAT(NOW(), '%m%d') ) > ? ";
+			"FROM user WHERE 1 = 1 "+
+			"and sex = ? "+
+			"and height > ?  "+
+			"and marital_situatio = ? "+
+			"and (year(now())-year(birthday)-1) + ( DATE_FORMAT(birthday, '%m%d') <= DATE_FORMAT(NOW(), '%m%d') ) > ? ";
 		return DBUnitHelper.executeQuery(sql, User.class, user.getSex(), user.getHeight(), user.getMarital_situatio(),user.getAge());
 	}
 

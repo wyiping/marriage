@@ -6,6 +6,7 @@ public class User {
 	private Integer userid;
 	private String password;
 	private String username;
+	private String name;
 	private String sex;
 	private Float height;
 	private Date birthday;
@@ -32,6 +33,12 @@ public class User {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getSex() {
 		return sex;

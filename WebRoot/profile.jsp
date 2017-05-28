@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>婚恋网站</title>
+    <title>${u.name}的资料</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
@@ -20,6 +20,8 @@
     <!-- Custom Theme files -->
     <link href="css/style.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<link href="css/popup.css" rel="stylesheet" type="text/css">
     <script>
         $(document).ready(function () {
             $(".dropdown").hover(function () {
@@ -76,19 +78,41 @@
                                     <a href="<%=basePath%>">首页</a>
                                 </li>
                                 <li>
+                                    <a href="<%=basePath%>home?cmd=search.jsp">寻找</a>
+                                </li>
+                                <li>
                                     <a href="<%=basePath%>home?cmd=members">会员</a>
                                 </li>
+                                <li>
+                                    <a href="<%=basePath%>about.jsp">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>contact.jsp">联系我们</a>
+                                </li>
                                 <c:if test="${user!=null}">
-                                    <li class="dropdown js-user">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username}<span
+                                	<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span
 										class="caret"></span>
 									</a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=edit">修改资料</a>
+                                                <a href="<%=basePath%>message?cmd=receive">收到的留言</a>
                                             </li>
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=avatar">修改头像</a>
+                                                <a href="<%=basePath%>message?cmd=sender">发出的消息</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.name}<span
+										class="caret"></span>
+									</a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="<%=basePath%>edit.jsp">修改资料</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%=basePath%>avatar.jsp">修改头像</a>
                                             </li>
                                             <li>
                                                 <a href="<%=basePath%>user?cmd=logout">注销</a>
@@ -133,6 +157,17 @@
 										<td class="day_label1">用户:</td>
 										<td class="day_value">${u.username}</td>
 									</tr>
+									<tr class="opened">
+										<td class="day_label1">性别:</td>
+										<td class="day_value">
+											<c:choose>
+												<c:when test="${u.sex=='male'}">
+													男
+												</c:when>
+												<c:otherwise>女</c:otherwise>
+											</c:choose>										
+										</td>
+									</tr>
 									<tr class="opened_1">
 										<td class="day_label1">年龄:</td>
 										<td class="day_value">${u.age}岁</td>
@@ -153,20 +188,153 @@
 													未婚		
 												</c:when>
 												<c:otherwise>已婚</c:otherwise>
-											</c:choose>										
+											</c:choose>							
 										</td>
 									</tr>
 								</tbody>
 							</table>
+							<c:choose>
+								<c:when test="${user == null}">
+									<ul class="login_details">
+										<li>登录后给TA留言 <a href="login.jsp">登录</a></li>
+										<li>不是会员？ <a href="register.jsp">免费注册</a></li>
+									</ul>
+								</c:when>
+								<c:otherwise>
+									<div class="buttons">
+										<a class="popup-with-zoom-anim order-btn col-md-2" href="#small-dialog">留言</a>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
+					<div id="small-dialog" class="mfp-hide">
+						<div class="pop_up">
+						<div class="payment-online-form-left">
+							<form action="<%=basePath%>message?cmd=send&receiver=${u.userid}" method="post">
+								<h4>给他留言</h4>
+								<textarea rows="6" style="width: 100%;" name="message"></textarea>
+								<ul class="payment-sendbtns">
+									<li><input type="submit" value="提交"></li>
+								</ul>
+								<div class="clearfix"> </div>
+							</form>
+						</div>
+						</div>
+					</div>
 					<div class="col_4">
-						<div class="bs-example bs-example-tabs">
+						<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+							<ul id="myTab" class="nav nav-tabs nav-tabs1" role="tablist">
+								<li role="presentation" class="active"><a href="#myself" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">个人资料</a></li>
+								<li role="presentation"><a href="#family" role="tab" id="profile-tab" data-toggle="tab">家庭资料</a></li>
+							</ul>
 							<div class="tab-content">
-								<div class="tab-pane fade in active">
+								<div role="tabpanel" class="tab-pane fade in active" id="myself" aria-labelledby="home-tab">
 									<div class="tab_box">
 										<h1>${u.detail}</h1>
+										<p></p>
+									</div>
+									<div class="basic_1">
+										<h3>基本资料</h3>
+										<div class="col-md-6 basic_1-left">
+											<table class="table_working_hours">
+												<tbody>
+													<tr class="opened_1">
+														<td class="day_label">姓名:</td>
+														<td class="day_value">${u.name}</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">婚姻状态:</td>
+														<td class="day_value">
+															<c:choose>
+																<c:when test="${u.marital_situatio=='0'}">
+																	未婚		
+																</c:when>
+																<c:otherwise>已婚</c:otherwise>
+															</c:choose>					
+														</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">身高 :</td>
+														<td class="day_value">${u.height }cm</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">年龄:</td>
+														<td class="day_value closed"><span>${u.age}</span></td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">资料:</td>
+														<td class="day_value closed"><span>自己</span></td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">饮酒 :</td>
+														<td class="day_value closed"><span>不</span></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="col-md-6 basic_1-left">
+											<table class="table_working_hours">
+												<tbody>
+													<tr class="opened_1">
+														<td class="day_label">年龄 :</td>
+														<td class="day_value">${u.age}</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">生日 :</td>
+														<td class="day_value">${u.birthday}</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">体重 :</td>
+														<td class="day_value">60KG</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">血型:</td>
+														<td class="day_value">B+</td>
+													</tr>
+													<tr class="closed">
+														<td class="day_label">饮食 :</td>
+														<td class="day_value closed"><span>正常</span></td>
+													</tr>
+													<tr class="closed">
+														<td class="day_label">吸烟 :</td>
+														<td class="day_value closed"><span>不</span></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="basic_1 basic_2">
+										<h3>教育经历</h3>
+										<div class="basic_1-left">
+											<table class="table_working_hours">
+												<tbody>
+													<tr class="opened">
+														<td class="day_label">学历 :</td>
+														<td class="day_value">本科</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">学校:</td>
+														<td class="day_value">中北大学</td>
+													</tr>
+													<tr class="opened">
+														<td class="day_label">专业:</td>
+														<td class="day_value closed"><span>软件工程</span></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="family" aria-labelledby="profile-tab">
+									<div class="basic_3">
+										<h4>家庭详细资料</h4>
+										<div class="basic_1 basic_2">
+											<h3>无详细资料</h3>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -174,18 +342,26 @@
 					</div>
 				</div>
 				<div class="col-md-4 profile_right">
+					<div class="newsletter">
+						<form action="<%=basePath%>home">
+							<input type="hidden" value="profile" name="cmd" />
+							<input type="text" name="id" size="30" required="" placeholder="请输入用户 ID :">
+							<input type="submit" value="Go">
+						</form>
+					</div>
 					<div class="view_profile">
-						<h3>更多</h3>
-						<c:forEach items="${s_users}" var="u2">
+						<h3>最近访客</h3>
+						<c:forEach items="${visited}" var="user" begin="0" end="3">
 						<ul class="profile_item">
-							<a href="#">
+							<a href="<%=basePath%>home?cmd=profile&id=${user.userid}">
 								<li class="profile_item-img">
-									<img class="img-responsive" src="images/avatar/${u2.avatar}"  onerror="this.src='<c:choose><c:when test="${u2.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
+									<img src="<%=basePath%>images/avatar/${user.avatar}" class="hover-animation image-zoom-in img-responsive" onerror="this.src='<c:choose><c:when test="${user.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
 								</li>
 								<li class="profile_item-desc">
-									<h4>ID:${u2.userid}</h4>
-									<p>${u2.username}</p>
-									<h5><a href="<%=basePath%>home?cmd=profile&id=${u2.userid}">详细资料</a></h5>
+									<h4>${user.username}</h4>
+									${user.age}岁<br>
+                                	${user.height}CM
+									<h5>看看Ta的资料</h5>
 								</li>
 								<div class="clearfix"> </div>
 							</a>
@@ -207,5 +383,21 @@
             </div>
         </div>
     </div>
+    
+    <script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+		});
+	</script>
 </body>
 </html>

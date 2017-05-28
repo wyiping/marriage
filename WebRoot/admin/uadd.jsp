@@ -21,8 +21,8 @@
 
 	<body class="content1">
 		<script>
-$('#a_leader_txt', parent.document).html('新增用户');
-</script>
+			$('#a_leader_txt', parent.document).html('新增用户');
+		</script>
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<form method="post" action="<%=basePath%>admin?cmd=useradd">
@@ -32,6 +32,10 @@ $('#a_leader_txt', parent.document).html('新增用户');
 								用户名：
 							</label>
 							<input type="text" name="username" maxlength="10">
+							<label>
+								昵称：
+							</label>
+							<input type="text" name="name" maxlength="10">
 							<label>
 								用户密码：
 							</label>

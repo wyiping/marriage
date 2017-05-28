@@ -24,12 +24,16 @@ public class HomeServlet extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		if (cmd == null){
 			initpage(request, response);
+		} else if(cmd.equals("search.jsp")){
+			request.setAttribute("users", dao.find());
+			request.getRequestDispatcher("/search.jsp").forward(request,response);
 		} else if (cmd.equals("search")){
 			search(request, response);
 		} else if (cmd.equals("members")){
 			members(request, response);
 		} else if (cmd.equals("profile")){
 			request.setAttribute("u", dao.find_one(Integer.parseInt(request.getParameter("id"))));
+			request.setAttribute("visited", dao.find());
 			request.getRequestDispatcher("/profile.jsp").forward(request,response);
 		}
 	}
@@ -40,8 +44,7 @@ public class HomeServlet extends HttpServlet {
 	 * @param response
 	 */
 	private void initpage(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession(true);
-		session.setAttribute("s_users", dao.find());
+		request.setAttribute("users", dao.find());
 		try {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} catch (ServletException e) {
@@ -58,7 +61,7 @@ public class HomeServlet extends HttpServlet {
 		try {
 			BeanUtils.populate(user, request.getParameterMap());
 			request.setAttribute("users", dao.search(user));
-			request.getRequestDispatcher("/search.jsp").forward(request,response);
+			request.getRequestDispatcher("/matches.jsp").forward(request,response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

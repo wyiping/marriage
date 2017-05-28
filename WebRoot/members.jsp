@@ -76,19 +76,41 @@
                                     <a href="<%=basePath%>">首页</a>
                                 </li>
                                 <li>
+                                    <a href="<%=basePath%>home?cmd=search.jsp">寻找</a>
+                                </li>
+                                <li>
                                     <a href="<%=basePath%>home?cmd=members">会员</a>
                                 </li>
+                                <li>
+                                    <a href="<%=basePath%>about.jsp">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>contact.jsp">联系我们</a>
+                                </li>
                                 <c:if test="${user!=null}">
-                                    <li class="dropdown js-user">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username}<span
+                                	<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span
 										class="caret"></span>
 									</a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=edit">修改资料</a>
+                                                <a href="<%=basePath%>message?cmd=receive">收到的留言</a>
                                             </li>
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=avatar">修改头像</a>
+                                                <a href="<%=basePath%>message?cmd=sender">发出的消息</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.name}<span
+										class="caret"></span>
+									</a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="<%=basePath%>edit.jsp">修改资料</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%=basePath%>avatar.jsp">修改头像</a>
                                             </li>
                                             <li>
                                                 <a href="<%=basePath%>user?cmd=logout">注销</a>
@@ -114,6 +136,84 @@
 					<li class="current-page">会员</li>
 				</ul>
 			</div>
+			<div class="col-md-3 col_5">
+				<ul class="match_box">
+					<h4>查找</h4>
+				</ul>
+				<ul class="menu">
+					<li class="item1">
+						<h3 class="m_2">创建时间</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">一周内（2）</a></li>
+							<li class="subitem2"><a href="#">一月内（4）</a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">资料类型</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">有照片（4） </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">婚姻状态</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">未婚（3） </a></li>
+							<li class="subitem1"><a href="#">已婚（2） </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">母语</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">汉语 </a></li>
+							<li class="subitem1"><a href="#">英语 </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">教育水平</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">高中（3）</a></li>
+							<li class="subitem1"><a href="#">本科（4） </a></li>
+							<li class="subitem1"><a href="#">研究生（5） </a></li>
+							<li class="subitem1"><a href="#">博士（3） </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">职业</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">工程师（2） </a></li>
+							<li class="subitem1"><a href="#">IT（3）</a></li>
+							<li class="subitem1"><a href="#">教师（3） </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">健康状态</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">正常 </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">饮食</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">素食主义（4）</a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">吸烟</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">从不（4）</a></li>
+							<li class="subitem1"><a href="#">偶尔（3） </a></li>
+						</ul>
+					</li>
+					<li class="item1">
+						<h3 class="m_2">爱好</h3>
+						<ul class="cute">
+							<li class="subitem1"><a href="#">运动（4）</a></li>
+							<li class="subitem1"><a href="#">篮球（5）</a></li>
+							<li class="subitem1"><a href="#">足球（3） </a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 			<div class="col-md-9 profile_left2">
 			<c:forEach items="${pager.list}" var="user">
 				<div class="profile_top">
@@ -134,6 +234,17 @@
 									<tr class="opened_1">
 										<td class="day_label1">用户:</td>
 										<td class="day_value">${user.username}</td>
+									</tr>
+									<tr class="opened">
+										<td class="day_label1">性别:</td>
+										<td class="day_value">
+											<c:choose>
+												<c:when test="${user.sex=='male'}">
+													男
+												</c:when>
+												<c:otherwise>女</c:otherwise>
+											</c:choose>										
+										</td>
 									</tr>
 									<tr class="opened_1">
 										<td class="day_label1">年龄:</td>
@@ -199,26 +310,7 @@
 			</center>
 			</nav>
 			</div>
-			<div class="col-md-3 profile_right">
-					<div class="view_profile">
-						<h3>更多</h3>
-						<c:forEach items="${s_users}" var="u2">
-						<ul class="profile_item">
-							<a href="#">
-								<li class="profile_item-img">
-									<img class="img-responsive" src="images/avatar/${u2.avatar}"  onerror="this.src='<c:choose><c:when test="${u2.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
-								</li>
-								<li class="profile_item-desc">
-									<h4>ID:${u2.userid}</h4>
-									<p>${u2.username}</p>
-									<h5><a href="<%=basePath%>home?cmd=profile&id=${u2.userid}">详细资料</a></h5>
-								</li>
-								<div class="clearfix"> </div>
-							</a>
-						</ul>
-						</c:forEach>
-					</div>
-				</div>
+			
 			<div class="clearfix"> </div>
 		</div>
 	</div>

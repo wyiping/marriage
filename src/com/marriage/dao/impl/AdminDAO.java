@@ -19,8 +19,8 @@ public class AdminDAO implements IAdminDAO {
 	 * @see com.marriage.dao.interfaces.IAdminDAO#add(com.marriage.model.User)
 	 */
 	public Integer add(User user) {
-		String sql = "insert into user(username,password,sex,height,birthday,detail,email,marital_situatio,role) values(?,?,?,?,?,?,?,?,?)";
-		return DBUnitHelper.executeUpdate(sql, user.getUsername(), user
+		String sql = "insert into user(username,name,password,sex,height,birthday,detail,email,marital_situatio,role) values(?,?,?,?,?,?,?,?,?,?)";
+		return DBUnitHelper.executeUpdate(sql, user.getUsername(),user.getName(), user
 				.getPassword(), user.getSex(), user.getHeight(), user
 				.getBirthday(), user.getDetail(), user.getEmail(), user
 				.getMarital_situatio(),user.getRole());
@@ -75,10 +75,10 @@ public class AdminDAO implements IAdminDAO {
 
 	public Integer update(User user) {
 		String sql = "update user set" +
-				" username=?,password=?,sex=?,height=?," +
+				" username=?,name=?,password=?,sex=?,height=?," +
 				"birthday=?,email=?,detail=?,marital_situatio=?,role=?" +
 				"where userid=?";
-		return DBUnitHelper.executeUpdate(sql,user.getUsername(),user.getPassword(),user.getSex(),user.getHeight(),
+		return DBUnitHelper.executeUpdate(sql,user.getUsername(),user.getName(),user.getPassword(),user.getSex(),user.getHeight(),
 				user.getBirthday(),user.getEmail(),user.getDetail(),user.getMarital_situatio(),user.getRole(),user.getUserid());
 	}
 }

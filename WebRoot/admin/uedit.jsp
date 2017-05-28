@@ -22,8 +22,8 @@
 
 	<body class="content1">
 		<script>
-$('#a_leader_txt', parent.document).html('编辑用户');
-</script>
+			$('#a_leader_txt', parent.document).html('编辑用户');
+		</script>
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<form method="post" action="<%=basePath%>admin?cmd=useredit&id=${user.userid}">
@@ -33,6 +33,10 @@ $('#a_leader_txt', parent.document).html('编辑用户');
 								用户名：
 							</label>
 							<input type="text" name="username" maxlength="10" value="${user.username}">
+							<label>
+								昵称：
+							</label>
+							<input type="text" name="name" maxlength="10" value="${user.name}">
 							<label>
 								用户密码：
 							</label>

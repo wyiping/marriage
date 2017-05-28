@@ -38,11 +38,7 @@ public class UserServlet extends HttpServlet {
 		} else if (cmd.equals("logout")){
 			logout(request,response);
 		} else if (cmd.equals("edit")){
-			request.getRequestDispatcher("/edit.jsp").forward(request,response);
-		} else if (cmd.equals("toedit")){
 			edit(request,response);
-		} else if (cmd.equals("avatar")){
-			request.getRequestDispatcher("/avatar.jsp").forward(request,response);
 		} else if (cmd.equals("edit_avatar")){
 			edit_avatar(request, response);
 		}
@@ -55,12 +51,11 @@ public class UserServlet extends HttpServlet {
 			BeanUtils.populate(user, request.getParameterMap());
 			Integer rtn = dao.register(user);
 			if (rtn > 0) {
-				response.sendRedirect(Tools.Basepath(request, response)
-						+ "login.jsp");
+				request.setAttribute("msg", "注册成功请登录");
+				request.getRequestDispatcher("/login.jsp").forward(request,response);
 			} else {
 				request.setAttribute("msg", "添加用户失败或请不要再重复添加");
-				request.getRequestDispatcher("/register.jsp").forward(request,
-						response);
+				request.getRequestDispatcher("/register.jsp").forward(request,response);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -78,14 +73,12 @@ public class UserServlet extends HttpServlet {
 		try {
 			if (user == null) {
 				request.setAttribute("msg", "用户名密码错误");
-				request.getRequestDispatcher("/login.jsp").forward(request,
-						response);
+				request.getRequestDispatcher("/login.jsp").forward(request,response);
 				return;
 			} else {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
-				request.getRequestDispatcher("/index.jsp").forward(request,
-						response);
+				response.sendRedirect(Tools.Basepath(request, response)+"home");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -99,12 +92,10 @@ public class UserServlet extends HttpServlet {
 	 * @throws IOException 
 	 */
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
-		response.sendRedirect(Tools.Basepath(request, response)+"index.jsp");
+		response.sendRedirect(request.getHeader("Referer"));
 	}
-	
 
 	private void edit(HttpServletRequest request, HttpServletResponse response) {
 		User user = new User();
@@ -117,7 +108,7 @@ public class UserServlet extends HttpServlet {
 			} else {
 				request.setAttribute("msg", "更新失败");
 			}
-			request.getRequestDispatcher("/user?cmd=edit").forward(request, response);
+			request.getRequestDispatcher("/edit.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -136,7 +127,6 @@ public class UserServlet extends HttpServlet {
         if(!new File(serverPath+tempPath).isDirectory()){  
             new File(serverPath+tempPath).mkdirs();  
         }
-        
         
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setRepository(new File(serverPath+tempPath));
@@ -159,7 +149,7 @@ public class UserServlet extends HttpServlet {
                     user.setAvatar(uuid+fileName.substring(fileName.lastIndexOf(".")));
                     dao.avatar(user);
                     request.setAttribute("msg", "上传成功！");
-                    request.getRequestDispatcher("/user?cmd=avatar").forward(request, response);
+                    request.getRequestDispatcher("/avatar.jsp").forward(request, response);
                 }  
             }  
         } catch (Exception e) {  

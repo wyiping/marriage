@@ -16,7 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/calendar.css" rel='stylesheet' type='text/css' />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.5.1.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 	<script src="js/calendar.js"></script>
 	<!-- Custom Theme files -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -72,21 +71,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav nav_1">
-								<li><a href="<%=basePath%>">首页</a></li>
-								<li>
+                                <li>
+                                    <a href="<%=basePath%>">首页</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>home?cmd=search.jsp">寻找</a>
+                                </li>
+                                <li>
                                     <a href="<%=basePath%>home?cmd=members">会员</a>
                                 </li>
+                                <li>
+                                    <a href="<%=basePath%>about.jsp">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>contact.jsp">联系我们</a>
+                                </li>
                                 <c:if test="${user!=null}">
-                                    <li class="dropdown js-user">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username}<span
+                                	<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span
 										class="caret"></span>
 									</a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=edit">修改资料</a>
+                                                <a href="<%=basePath%>message?cmd=receive">收到的留言</a>
                                             </li>
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=avatar">修改头像</a>
+                                                <a href="<%=basePath%>message?cmd=sender">发出的消息</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.name}<span
+										class="caret"></span>
+									</a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="<%=basePath%>edit.jsp">修改资料</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%=basePath%>avatar.jsp">修改头像</a>
                                             </li>
                                             <li>
                                                 <a href="<%=basePath%>user?cmd=logout">注销</a>
@@ -94,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         </ul>
                                     </li>
                                 </c:if>
-							</ul>
+                            </ul>
 						</div>
 					</nav>
 				</div>
@@ -113,11 +136,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="services">
 				<div class="col-sm-6 col-sm-push-3 login_left">
-					<form action="<%=basePath%>user" method="post">
-						<input name="cmd" value="register" type="hidden"/>
+					<form action="<%=basePath%>user?cmd=register" method="post">
+						<c:if test="${msg!=null}">
+							<div class="alert alert-danger" role="alert">${msg}</div>
+						</c:if>
 						<div class="form-group">
-							<label for="edit-name">用户名 <span class="form-required">*</span></label>
-							<input type="text" id="edit-name" name="username" value="" size="60" maxlength="60" class="form-text required">
+							<label for="edit-username">用户名 <span class="form-required">*</span></label>
+							<input type="text" id="edit-username" name="username" value="" size="60" maxlength="60" class="form-text required">
+						</div>
+						<div class="form-group">
+							<label for="edit-name">昵称 <span class="form-required">*</span></label>
+							<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">
 						</div>
 						<div class="form-group">
 							<label for="edit-pass">密码 <span class="form-required">*</span></label>

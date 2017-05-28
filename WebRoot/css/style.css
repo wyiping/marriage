@@ -944,6 +944,7 @@ h4.post-title a:hover{
     padding:5px 10px;
     font-size: 12px;
     color:#fff;
+    cursor: pointer;
 }
 .vertical:before {
   content: "";
@@ -1832,7 +1833,6 @@ a.order-btn{
     text-decoration: none;
     background:#c32143;
     font-size: 13px;
-    width: 55%;
     margin:1em auto auto auto;
     border: none;
     outline: none;

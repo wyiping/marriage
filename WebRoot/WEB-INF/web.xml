@@ -35,6 +35,15 @@
     	<url-pattern>/admin</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+    	<servlet-name>MessageServlet</servlet-name>
+    	<servlet-class>com.marriage.servlets.MessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>MessageServlet</servlet-name>
+    	<url-pattern>/message</url-pattern>
+	</servlet-mapping>
+	
 	<filter>
 		<filter-name>encode</filter-name>
 		<filter-class>com.marriage.filters.EncodeFilter</filter-class>

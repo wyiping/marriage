@@ -71,21 +71,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav nav_1">
-								<li><a href="<%=basePath%>">首页</a></li>
-								<li>
+                                <li>
+                                    <a href="<%=basePath%>">首页</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>home?cmd=search.jsp">寻找</a>
+                                </li>
+                                <li>
                                     <a href="<%=basePath%>home?cmd=members">会员</a>
                                 </li>
+                                <li>
+                                    <a href="<%=basePath%>about.jsp">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>contact.jsp">联系我们</a>
+                                </li>
                                 <c:if test="${user!=null}">
-                                    <li class="dropdown js-user">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username}<span
+                                	<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span
 										class="caret"></span>
 									</a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=edit">修改资料</a>
+                                                <a href="<%=basePath%>message?cmd=receive">收到的留言</a>
                                             </li>
                                             <li>
-                                                <a href="<%=basePath%>user?cmd=avatar">修改头像</a>
+                                                <a href="<%=basePath%>message?cmd=sender">发出的消息</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.name}<span
+										class="caret"></span>
+									</a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="<%=basePath%>edit.jsp">修改资料</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%=basePath%>avatar.jsp">修改头像</a>
                                             </li>
                                             <li>
                                                 <a href="<%=basePath%>user?cmd=logout">注销</a>
@@ -93,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         </ul>
                                     </li>
                                 </c:if>
-							</ul>
+                            </ul>
 						</div>
 					</nav>
 				</div>
