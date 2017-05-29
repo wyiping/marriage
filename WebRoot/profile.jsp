@@ -139,7 +139,9 @@
 					<li class="current-page">个人资料</li>
 				</ul>
 			</div>
+			
 			<div class="profile">
+				<c:if test="${u!=null}">
 				<div class="col-md-8 profile_left">
 					<h2>用户 Id : ${u.userid}</h2>
 					<div class="col_3">
@@ -341,11 +343,17 @@
 						</div>
 					</div>
 				</div>
+				</c:if>
+				<c:if test="${u==null}">
+					<div class="col-md-8 profile_left">
+					<h2>此用户不存在。</h2>
+					</div>
+				</c:if>
 				<div class="col-md-4 profile_right">
 					<div class="newsletter">
 						<form action="<%=basePath%>home">
 							<input type="hidden" value="profile" name="cmd" />
-							<input type="text" name="id" size="30" required="" placeholder="请输入用户 ID :">
+							<input type="text" name="id" size="30" required="" placeholder="请输入用户 ID :" onkeyup="value=value.replace(/[^1234567890-]+/g,'')">
 							<input type="submit" value="Go">
 						</form>
 					</div>

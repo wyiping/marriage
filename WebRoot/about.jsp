@@ -169,7 +169,6 @@
 							<div class="clearfix"></div>
 						</div>
 					</blockquote>
-					<small class="testi-meta"><span class="user">Eiusmod tempor incididunt</span></small>
 				</div>
 				<div class="col-sm-6 testi_grid list-item-1">
 					<blockquote class="testi_grid_blockquote">
@@ -180,7 +179,6 @@
 							<div class="clearfix"></div>
 						</div>
 					</blockquote>
-					<small class="testi-meta1"><span class="user">Sint occaecat </span></small>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -194,7 +192,6 @@
 							<div class="clearfix"></div>
 						</div>
 					</blockquote>
-					<small class="testi-meta"><span class="user">Eiusmod tempor incididunt</span></small>
 				</div>
 				<div class="col-sm-6 testi_grid list-item-1">
 					<blockquote class="testi_grid_blockquote">
@@ -205,7 +202,6 @@
 							<div class="clearfix"></div>
 						</div>
 					</blockquote>
-					<small class="testi-meta1"><span class="user">Sint occaecat </span></small>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

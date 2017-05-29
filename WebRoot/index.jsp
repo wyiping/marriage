@@ -235,7 +235,7 @@
     
     <div class="grid_2">
 	<div class="container">
-		<h2>Success Stories</h2>
+		<h2>成功故事</h2>
        	<div class="heart-divider">
 			<span class="grey-line"></span>
 			<i class="fa fa-heart pink-heart"></i>
@@ -247,121 +247,120 @@
 	         <ul> 
 			   <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2013年09月01日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/7.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">冰天雪地 &雪落有声</a></h4>				        	
+				        	<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>
 				        </div>
 				    </div>
 				</li>
 	            <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2016年12月25日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/8.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">留恋 & 可儿</a></h4>
+				        	<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>			        	
 				        </div>
 				    </div>
 				</li>
 	            <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2016年11月29日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/9.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">gkyj & 盏心</a></h4>
+				        	<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>
 				        </div>
 				    </div>
 				</li>
 	            <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2017年01月01日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/10.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">米兰 & 缘分</a></h4>
+							<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>
 				        </div>
 				    </div>
 				</li>
 	            <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2017年04月01日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/11.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">翩若惊鸿 & 猫♨☞</a></h4>
+				        	<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>
 				        </div>
 				    </div>
 				</li>
 	            <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2017年04月25日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/12.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">茄子 & 小嫚儿</a></h4>
+				        	<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>
 				        </div>
 				    </div>
 				</li>
 	            <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">2017年06月01日</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="images/13.jpg" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">Lorem & Ipsum</a></h4>				        	
-				        	<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+				        	<h4><a href="#">毛毛虫 & 大宝</a></h4>
+				        	<p>我们终于在一起了，感谢网站给了我们这个的平台。希望更多的单身朋友能够在这里找到自己的另一半。</p>
 				        </div>
 				    </div>
 				</li>
 	        </ul>
 	    </div>
 	    <div class="col-md-4 row_1-right">
-	      <h3>News & Events</h3>
+	      <h3>爱情语录</h3>
 	        <div class="box_1">
 		      <figure class="thumbnail1"><img width="170" height="155" src="images/14.jpg" class="img-responsive" alt=""/></figure>
 			  <div class="extra-wrap">
 				<div class="post-meta">
 					<span class="day">
-					<time datetime="2014-05-25T10:15:43+00:00">25</time>
+					<time>25</time>
 					</span>
 					<span class="month">
-					<time datetime="2014-05-25T10:11:51+00:00">May</time>
+					<time>5月</time>
 					</span>
 				</div>
-				<h4 class="post-title"><a href="#">There are many variations of passages</a></h4>
+				<h4 class="post-title"><a href="#">一份真正的感情，需要彼此的珍惜。</a></h4>
 				<div class="clearfix"> </div>
-				<div class="post-content">The standard chunk of Lorem Ipsum used since the 1500s..</div>
-				<a href="#" class="vertical">Read More</a>
+				<a href="#" class="vertical">查看</a>
 			  </div>
 	        </div>
 	        <div class="box_1">
@@ -369,70 +368,64 @@
 			  <div class="extra-wrap">
 				<div class="post-meta">
 					<span class="day">
-					<time datetime="2014-05-25T10:15:43+00:00">25</time>
+					<time>25</time>
 					</span>
 					<span class="month">
-					<time datetime="2014-05-25T10:11:51+00:00">May</time>
+					<time>5月</time>
 					</span>
 				</div>
-				<h4 class="post-title"><a href="#">There are many variations of passages</a></h4>
+				<h4 class="post-title"><a href="#">一份执着的守望，需要彼此的用心。</a></h4>
 				<div class="clearfix"> </div>
-				<div class="post-content">The standard chunk of Lorem Ipsum used since the 1500s..</div>
-				<a href="#" class="vertical">Read More</a>
+				<a href="#" class="vertical">查看</a>
 			  </div>
 	        </div>
-	        <div class="box_2">
+	        <div class="box_1">
 		      <figure class="thumbnail1"><img width="170" height="155" src="images/1.jpg" class="img-responsive" alt=""/></figure>
 			  <div class="extra-wrap">
 				<div class="post-meta">
 					<span class="day">
-					<time datetime="2014-05-25T10:15:43+00:00">25</time>
+					<time>25</time>
 					</span>
 					<span class="month">
-					<time datetime="2014-05-25T10:11:51+00:00">May</time>
+					<time>5月y</time>
 					</span>
 				</div>
-				<h4 class="post-title"><a href="#">There are many variations of passages</a></h4>
+				<h4 class="post-title"><a href="#">不是所有的等待，都能守候成美丽的风景，不是所有的感情，都能成为美丽的故事。</a></h4>
 				<div class="clearfix"> </div>
-				<div class="post-content">The standard chunk of Lorem Ipsum used since the 1500s..</div>
-				<a href="#" class="vertical">Read More</a>
+				<a href="#" class="vertical">查看</a>
 			  </div>
 	        </div>
-	        <div class="religion">
-               <div class="religion_1-title">Religion :</div>
-			   <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">Hindu</a>
-			    <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Muslim</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Christian</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">Sikh</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Inter Religion</a>
+	        <div class="box_1">
+		      <figure class="thumbnail1"><img width="170" height="155" src="images/2.jpg" class="img-responsive" alt=""/></figure>
+			  <div class="extra-wrap">
+				<div class="post-meta">
+					<span class="day">
+					<time>25</time>
+					</span>
+					<span class="month">
+					<time>5月y</time>
+					</span>
+				</div>
+				<h4 class="post-title"><a href="#">用心珍惜每一份爱，用心付出每一份情。</a></h4>
+				<div class="clearfix"> </div>
+				<a href="#" class="vertical">查看</a>
+			  </div>
 	        </div>
-	        <div class="religion">
-               <div class="religion_1-title">Country :</div>
-			   <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">India</a>
-			    <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Australia</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Russia</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">India</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Kuwait</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Uk</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">View All</a>
-	        </div>
-	        <div class="religion">
-               <div class="religion_1-title">Caste :</div>
-			   <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">Brahmin</a>
-			    <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Kapu</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Kamma</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">Padmasali</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Reddy</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">View All</a>
-	        </div>
-	        <div class="religion">
-               <div class="religion_1-title">Regional :</div>
-			   <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">Urdu</a>
-			    <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Hindi</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Telugu</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">Marwadi</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Oriya</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">View All</a>
+	        <div class="box_1">
+		      <figure class="thumbnail1"><img width="170" height="155" src="images/3.jpg" class="img-responsive" alt=""/></figure>
+			  <div class="extra-wrap">
+				<div class="post-meta">
+					<span class="day">
+					<time>25</time>
+					</span>
+					<span class="month">
+					<time>5月y</time>
+					</span>
+				</div>
+				<h4 class="post-title"><a href="#">爱，在珍惜里，温暖;情，在守候里，长久。</a></h4>
+				<div class="clearfix"> </div>
+				<a href="#" class="vertical">查看</a>
+			  </div>
 	        </div>
 	     </div>
 	     <div class="clearfix"> </div>
@@ -442,7 +435,7 @@
     
     <div class="bg">
 		<div class="container"> 
-			<h3>Happy Clients</h3>
+			<h3>Love Story</h3>
 			<div class="heart-divider">
 				<span class="grey-line"></span>
 				<i class="fa fa-heart pink-heart"></i>
@@ -451,26 +444,16 @@
             </div>
             <div class="col-sm-6">
             	<div class="bg_left">
-            		<h4>But I must explain</h4>
-            		<h5>Friend of Bride</h5>
-            		<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-            	   <ul class="team-socials">
-                    <li><a href="#"><span class="icon-social "><i class="fa fa-facebook"></i></span></a></li>
-                    <li><a href="#"><span class="icon-social "><i class="fa fa-twitter"></i></span></a></li>
-                    <li><a href="#"><span class="icon-social"><i class="fa fa-google-plus"></i></span></a></li>
-                   </ul>
+            		<h4>一</h4>
+            		<h5>　</h5>
+            		<p>那一年，他们高三。在同一所学校，而一个是理科，一个文科。有一天，他和平常一样去上早自习，猛然看见她的身影。原来她搬到他家楼下。从那时，他就期待下晚自习，那样他便可以跟着她后面。就这样，高考结束了。他也没有表明。而她却一直在等他。</p>
             	</div>
             </div>
             <div class="col-sm-6">
             	<div class="bg_left">
-            		<h4>But I must explain</h4>
-            		<h5>Friend of Groom</h5>
-            		<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-            	   <ul class="team-socials">
-                    <li><a href="#"><span class="icon-social "><i class="fa fa-facebook"></i></span></a></li>
-                    <li><a href="#"><span class="icon-social "><i class="fa fa-twitter"></i></span></a></li>
-                    <li><a href="#"><span class="icon-social"><i class="fa fa-google-plus"></i></span></a></li>
-                   </ul>
+            		<h4>二</h4>
+            		<h5>　</h5>
+            		<p>他喜欢她，却不知道她的心意，他静静地看着她，开口说“我想开始新的生活，我不想错过你”。她笑着说“做朋友吧”他只能答应了。一个月后，她说“不知道为什么，看见你跟别的女生在一起开玩笑，我心会痛。”他宠溺地说“那我们开始吧”。故事从这里开始，从爱开始。</p>
             	</div>
             </div>
             <div class="clearfix"> </div>

@@ -219,7 +219,7 @@
 				<div class="profile_search1">
 					<form action="<%=basePath%>home">
 						<input type="hidden" value="profile" name="cmd" />
-						<input type="text" class="m_1" name="id" size="30" required="" placeholder="输入用户ID:">
+						<input type="text" class="m_1" name="id" size="30" required="" placeholder="输入用户ID:" onkeyup="value=value.replace(/[^1234567890-]+/g,'')">
 						<input type="submit" value="Go">
 					</form>
 				</div>
