@@ -243,6 +243,7 @@
 											<h6 class="title"><a href="<%=basePath%>home?cmd=profile&id=${receiver.sender}">用户ID(${receiver.sender})</a></h6>
 											<ul class="top-btns">
 												<li><a href="#" class="">${receiver.status}</a></li>
+												<li><a href="<%=basePath%>message?cmd=del&mid=${receiver.mid}">删除</a></li>
 											</ul>
 											<ul class="login_details1">
 												<li>${receiver.time}</li>

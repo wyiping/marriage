@@ -34,4 +34,11 @@ public interface IMessageDAO {
 	 * @return
 	 */
 	public Integer read(Integer mid);
+	
+	/**
+	 * 删除消息
+	 * @param mid
+	 * @return status
+	 */
+	public Integer delete(Integer id);
 }

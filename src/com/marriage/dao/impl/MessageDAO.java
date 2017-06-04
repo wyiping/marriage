@@ -29,4 +29,8 @@ public class MessageDAO implements IMessageDAO {
 		String sql = "update message set status = '已读' where mid = ?";
 		return DBUnitHelper.executeUpdate(sql,mid); 
 	}
+
+	public Integer delete(Integer id) {
+		return DBUnitHelper.executeUpdate("delete from message where mid = ?",id);
+	}
 }

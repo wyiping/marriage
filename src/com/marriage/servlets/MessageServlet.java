@@ -33,6 +33,9 @@ public class MessageServlet extends HttpServlet {
 			receive(request,response);
 		} else if (cmd.equals("read")){
 			read(request,response);
+		} else if (cmd.equals("del")){
+			dao.delete(Integer.parseInt(request.getParameter("mid")));
+			response.sendRedirect(request.getHeader("Referer"));
 		}
 	}
 	
