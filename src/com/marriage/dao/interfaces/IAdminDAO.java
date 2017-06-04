@@ -2,6 +2,7 @@ package com.marriage.dao.interfaces;
 
 import com.marriage.common.PageControl;
 import com.marriage.common.Pager;
+import com.marriage.model.Contact;
 import com.marriage.model.User;
 
 public interface IAdminDAO {
@@ -45,4 +46,17 @@ public interface IAdminDAO {
 	 * @return status
 	 */
 	public Integer update(User user);
+	
+	/**
+	 * 留言列表
+	 * @return list
+	 */
+	public Pager<Contact> contact_list(PageControl pc);
+	
+	/**
+	 * 删除留言
+	 * @param cid
+	 * @return status
+	 */
+	public Integer contact_delete(Integer id);
 }

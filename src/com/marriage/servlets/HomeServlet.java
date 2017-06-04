@@ -13,8 +13,11 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.marriage.common.PageControl;
 import com.marriage.common.Pager;
 import com.marriage.common.Tools;
+import com.marriage.dao.impl.ContactDAO;
 import com.marriage.dao.impl.UserDAO;
+import com.marriage.dao.interfaces.IContactDAO;
 import com.marriage.dao.interfaces.IUserDAO;
+import com.marriage.model.Contact;
 import com.marriage.model.User;
 
 public class HomeServlet extends HttpServlet {
@@ -22,6 +25,7 @@ public class HomeServlet extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String cmd = request.getParameter("cmd");
+		System.out.print(cmd);
 		if (cmd == null){
 			initpage(request, response);
 		} else if(cmd.equals("search.jsp")){
@@ -35,6 +39,8 @@ public class HomeServlet extends HttpServlet {
 			request.setAttribute("u", dao.find_one(Integer.parseInt(request.getParameter("id"))));
 			request.setAttribute("visited", dao.find());
 			request.getRequestDispatcher("/profile.jsp").forward(request,response);
+		} else if (cmd.equals("contact")){
+			contact(request, response);
 		}
 	}
 	
@@ -80,5 +86,20 @@ public class HomeServlet extends HttpServlet {
 		request.setAttribute("pager", pager);
 		request.getRequestDispatcher("/members.jsp").forward(request,
 				response);
+	}
+	
+	private void contact(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		System.out.print("tset");
+		IContactDAO cdao = new ContactDAO();
+		Contact con = new Contact();
+		try {
+			BeanUtils.populate(con, request.getParameterMap());
+			cdao.send(con);
+			request.setAttribute("msg", "提交成功！");
+			response.sendRedirect(request.getHeader("Referer"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 }

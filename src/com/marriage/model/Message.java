@@ -5,10 +5,18 @@ import java.sql.Date;
 import com.marriage.model.User;
 
 public class Message {
+	private Integer mid;
 	private Integer sender;
 	private Integer receiver;
 	private String message;
 	private Date time;
+	private String status;
+	public Integer getMid() {
+		return mid;
+	}
+	public void setMid(Integer mid) {
+		this.mid = mid;
+	}
 	public Integer getSender() {
 		return sender;
 	}
@@ -32,5 +40,11 @@ public class Message {
 	}
 	public void setTime(Date time) {
 		this.time = time;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

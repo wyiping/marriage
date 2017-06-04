@@ -11,7 +11,7 @@ import com.marriage.model.Message;
 public class MessageDAO implements IMessageDAO {
 
 	public Integer send(Message msg) {
-		String sql = "insert into message(sender,receiver,message,time) value(?,?,?,?)";
+		String sql = "insert into message(sender,receiver,message,time,status) value(?,?,?,?,'未读')";
 		return DBUnitHelper.executeUpdate(sql,msg.getSender(),msg.getReceiver(),msg.getMessage(),msg.getTime()); 
 	}
 
@@ -23,5 +23,10 @@ public class MessageDAO implements IMessageDAO {
 	public Pager<Message> find_send(Integer id, PageControl pc) {
 		String sql = "select * from message where sender = ?";
 		return DBUnitHelper.execlist(sql, pc, Message.class, "mid", id);
+	}
+
+	public Integer read(Integer mid) {
+		String sql = "update message set status = '已读' where mid = ?";
+		return DBUnitHelper.executeUpdate(sql,mid); 
 	}
 }

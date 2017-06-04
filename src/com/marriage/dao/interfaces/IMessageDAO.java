@@ -27,4 +27,11 @@ public interface IMessageDAO {
 	 * @return
 	 */
 	public Pager<Message> find_send(Integer id,PageControl pc);
+	
+	/**
+	 * 阅读消息
+	 * @param senderID
+	 * @return
+	 */
+	public Integer read(Integer mid);
 }

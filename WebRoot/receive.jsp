@@ -242,16 +242,14 @@
 										<div class="jobs_right">
 											<h6 class="title"><a href="<%=basePath%>home?cmd=profile&id=${receiver.sender}">用户ID(${receiver.sender})</a></h6>
 											<ul class="top-btns">
-												<li><a href="#" class="fa fa-facebook"></a></li>
-												<li><a href="#" class="fa fa-twitter"></a></li>
-												<li><a href="#" class="fa fa-google-plus"></a></li>
+												<li><a href="#" class="">${receiver.status}</a></li>
 											</ul>
 											<ul class="login_details1">
 												<li>${receiver.time}</li>
 											</ul>
-											<p class="description">${receiver.message}</p>
+											<p class="description"><a href="<%=basePath%>message?cmd=read&mid=${receiver.mid}">${receiver.message}</a></p>
 										</div>
-										<div class="clearfix"> </div>
+										<div class="clearfix"></div>
 									</div>
 								</div>
 								</c:forEach>

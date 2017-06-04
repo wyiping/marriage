@@ -15,6 +15,7 @@ import com.marriage.common.Pager;
 import com.marriage.common.Tools;
 import com.marriage.dao.impl.AdminDAO;
 import com.marriage.dao.interfaces.IAdminDAO;
+import com.marriage.model.Contact;
 import com.marriage.model.User;
 
 public class AdminServlet extends HttpServlet {
@@ -38,6 +39,10 @@ public class AdminServlet extends HttpServlet {
 			user_edit(request, response);
 		} else if (cmd.equals("logout")){
 			logout(request,response);
+		} else if (cmd.equals("contact")) {
+			clist(request, response);
+		} else if (cmd.equals("cdel")) {
+			cdel(request, response);
 		}
 	}
 
@@ -144,5 +149,34 @@ public class AdminServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
 		response.sendRedirect(Tools.Basepath(request, response)+"/admin/login.jsp");
+	}
+	
+	private void clist(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		PageControl pc = new PageControl();
+		Integer currindex = 1;
+		if (request.getParameter("index") != null) {
+			currindex = Integer.parseInt(request.getParameter("index"));
+		}
+		pc.setCurrentindex(currindex);
+		Pager<Contact> pager = dao.contact_list(pc);
+		request.setAttribute("pager", pager);
+		request.getRequestDispatcher("/admin/clist.jsp").forward(request,
+				response);
+	}
+	
+	private void cdel(HttpServletRequest request,
+			HttpServletResponse response) {
+		Integer rtn = dao.contact_delete(Integer.parseInt(request.getParameter("cid")));
+		if (rtn > 0) {
+			request.setAttribute("msg", "删除成功！");
+		}else{
+			request.setAttribute("msg", "删除失败！");
+		}
+		try {
+			response.sendRedirect(request.getHeader("Referer"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

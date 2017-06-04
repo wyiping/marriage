@@ -31,8 +31,11 @@ public class MessageServlet extends HttpServlet {
 			sender(request,response);
 		} else if (cmd.equals("receive")){
 			receive(request,response);
+		} else if (cmd.equals("read")){
+			read(request,response);
 		}
 	}
+	
 	private void receive(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		User receiver = (User)session.getAttribute("user");
@@ -70,8 +73,11 @@ public class MessageServlet extends HttpServlet {
 			dao.send(msg);
 			response.sendRedirect(request.getHeader("Referer"));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+	}
+	private void read(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		dao.read(Integer.parseInt(request.getParameter("mid")));
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 }

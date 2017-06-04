@@ -9,6 +9,7 @@ import com.marriage.common.DBUnitHelper;
 import com.marriage.common.PageControl;
 import com.marriage.common.Pager;
 import com.marriage.dao.interfaces.IAdminDAO;
+import com.marriage.model.Contact;
 import com.marriage.model.User;
 
 public class AdminDAO implements IAdminDAO {
@@ -80,5 +81,14 @@ public class AdminDAO implements IAdminDAO {
 				"where userid=?";
 		return DBUnitHelper.executeUpdate(sql,user.getUsername(),user.getName(),user.getPassword(),user.getSex(),user.getHeight(),
 				user.getBirthday(),user.getEmail(),user.getDetail(),user.getMarital_situatio(),user.getRole(),user.getUserid());
+	}
+
+	public Pager<Contact> contact_list(PageControl pc) {
+		return DBUnitHelper.execlist("SELECT * FROM contact", pc, Contact.class, "cid", null);
+	}
+	
+	public Integer contact_delete(Integer id) {
+		String sql = "delete from contact where cid = ?";
+		return DBUnitHelper.executeUpdate(sql,id);
 	}
 }

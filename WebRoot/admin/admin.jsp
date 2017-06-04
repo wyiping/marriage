@@ -34,6 +34,12 @@
                    <a href="<%=basePath%>admin/uadd.jsp" target="right"><span class="icon-caret-right"></span>添加用户</a>
                </li>
            </ul>
+           <h2><span class="icon-briefcase"></span>留言管理</h2>
+           <ul id="" class="nav nav-list collapse" style="display:block">
+               <li>
+                   <a href="<%=basePath%>admin?cmd=contact" target="right"><span class="icon-caret-right"></span>查看留言</a>
+               </li>
+           </ul>
     </div>
     <script type="text/javascript">
         $(function(){

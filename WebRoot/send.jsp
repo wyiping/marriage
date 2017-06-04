@@ -242,9 +242,7 @@
 										<div class="jobs_right">
 											<h6 class="title"><a href="<%=basePath%>home?cmd=profile&id=${sender.receiver}">用户ID(${sender.receiver})</a></h6>
 											<ul class="top-btns">
-												<li><a href="#" class="fa fa-facebook"></a></li>
-												<li><a href="#" class="fa fa-twitter"></a></li>
-												<li><a href="#" class="fa fa-google-plus"></a></li>
+												<li><a href="#" class="">${sender.status}</a></li>
 											</ul>
 											<ul class="login_details1">
 												<li>${sender.time}</li>

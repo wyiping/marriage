@@ -161,12 +161,12 @@
 	<div class="about_middle">
 		<div class="container">
 			<h2>联系我们</h2>
-			<form id="contact-form" class="contact-form">
+			<form id="contact-form" class="contact-form" action="<%=basePath%>home?cmd=contact" method="post">
 				<fieldset>
-					<input type="text" class="text" placeholder="名称">
-					<input type="text" class="text" placeholder="邮箱">
-					<input type="text" class="text" placeholder="联系方式">
-					<textarea placeholder="message"></textarea>
+					<input type="text" class="text" placeholder="名称" name="name">
+					<input type="text" class="text" placeholder="邮箱" name="email">
+					<input type="text" class="text" placeholder="联系方式" name="phone">
+					<textarea placeholder="message" name="message"></textarea>
 					<input name="submit" type="submit" id="submit" value="提交">
 				</fieldset>
 			</form>
