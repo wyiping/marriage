@@ -151,7 +151,7 @@
 						<label class="col-sm-5 control-lable1">婚姻状态 : </label>
 						<div class="col-sm-7 form_radios">
 							<input type="radio" class="radio_1" name="marital_situatio" value="0" checked="checked" /> 单身 &nbsp;&nbsp;
-							<input type="radio" class="radio_1" name="marital_situatio" value="1"/> 已婚 &nbsp;&nbsp;
+							<input type="radio" class="radio_1" name="marital_situatio" value="1"/> 离异 &nbsp;&nbsp;
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -200,7 +200,7 @@
 												<c:when test="${u.marital_situatio=='0'}">
 													未婚		
 												</c:when>
-												<c:otherwise>已婚</c:otherwise>
+												<c:otherwise>离异</c:otherwise>
 											</c:choose>							
 										</h5>
 										<p>${u.age}岁，${u.height}CM<br></p>

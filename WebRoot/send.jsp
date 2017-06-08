@@ -159,7 +159,7 @@
 						<h3 class="m_2">婚姻状态</h3>
 						<ul class="cute">
 							<li class="subitem1"><a href="#">未婚（3） </a></li>
-							<li class="subitem1"><a href="#">已婚（2） </a></li>
+							<li class="subitem1"><a href="#">离异（2） </a></li>
 						</ul>
 					</li>
 					<li class="item1">
@@ -238,7 +238,7 @@
 								<c:forEach items="${pager.list}" var="sender">
 								<div class="jobs-item with-thumb">
 									<div class="thumb_top">
-										<div class="thumb"><a href="<%=basePath%>home?cmd=profile&id=${sender.receiver}"><img src="images/p15.jpg" class="img-responsive" alt=""/></a></div>
+										<div class="thumb"><a href="<%=basePath%>home?cmd=profile&id=${sender.receiver}"><img src="images/boy.png" class="img-responsive" alt=""/></a></div>
 										<div class="jobs_right">
 											<h6 class="title"><a href="<%=basePath%>home?cmd=profile&id=${sender.receiver}">用户ID(${sender.receiver})</a></h6>
 											<ul class="top-btns">

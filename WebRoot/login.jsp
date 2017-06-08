@@ -144,11 +144,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</c:if>
 						<div class="form-item form-type-textfield form-item-name">
 							<label for="edit-name">用户名 <span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="username" value="" size="60" maxlength="60" class="form-text required">
+							<input type="text" id="edit-name" name="username" value="" size="60" maxlength="60" class="form-text " required>
 						</div>
 						<div class="form-item form-type-password form-item-pass">
 							<label for="edit-pass">密码 <span class="form-required" title="This field is required.">*</span></label>
-							<input type="password" id="edit-pass" name="password" size="60" maxlength="128" class="form-text required">
+							<input type="password" id="edit-pass" name="password" size="60" maxlength="128" class="form-text " required>
 						</div>
 						<div class="form-actions">
 							<input type="submit" id="edit-submit" name="op" value="登录" class="btn_1 submit">

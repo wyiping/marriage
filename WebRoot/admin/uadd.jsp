@@ -72,7 +72,7 @@
 							</label>
 							<label for="radio-02" class="label_radio">
 								<input type="radio" name="marital_situatio" value="1">
-								已婚
+								离异
 							</label>
 							<label for="edit-detail">
 								描述

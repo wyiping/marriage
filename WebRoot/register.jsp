@@ -142,27 +142,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</c:if>
 						<div class="form-group">
 							<label for="edit-username">用户名 <span class="form-required">*</span></label>
-							<input type="text" id="edit-username" name="username" value="" size="60" maxlength="60" class="form-text required">
+							<input type="text" id="edit-username" name="username" value="" size="60" maxlength="60" class="form-text " required>
 						</div>
 						<div class="form-group">
 							<label for="edit-name">昵称 <span class="form-required">*</span></label>
-							<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">
+							<input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required" required>
 						</div>
 						<div class="form-group">
 							<label for="edit-pass">密码 <span class="form-required">*</span></label>
-							<input type="password" id="edit-pass" name="password" size="60" maxlength="128" class="form-text required">
+							<input type="password" id="edit-pass" name="password" size="60" maxlength="128" class="form-text required" required>
 						</div>
 						<div class="form-group">
 							<label for="edit-email">Email <span class="form-required">*</span></label>
-							<input type="text" id="edit-email" name="email" value="" size="60" maxlength="60" class="form-text required">
+							<input type="email" id="edit-email" name="email" value="" size="60" maxlength="60" class="form-text required" required>
 						</div>
 						<div class="form-group">
 							<label for="edit-height">身高 <span class="form-required">*</span></label>
-							<input type="text" id="edit-height" name="height" value="" size="60" maxlength="60" class="form-text required">
+							<input type="number" id="edit-height" name="height" value="" size="60" maxlength="60" class="form-text required" required>
 						</div>
 						<div class="age_select">
 							<label for="edit-bir">出生日期 <span class="form-required">*</span></label>
-							<input type="text" id="edit-bir" name="birthday" value="" size="60" maxlength="60" class="form-text required">
+							<input type="text" id="edit-bir" name="birthday" value="" size="60" maxlength="60" class="form-text required" required>
 						</div>
 						<div class="form-group form-group1">
 							<label class="col-sm-7 control-lable">性别 : </label>
@@ -186,7 +186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<input type="radio" name="marital_situatio" value="0" checked=""> 未婚
 									</label>
 									<label for="radio-02" class="label_radio">
-										<input type="radio" name="marital_situatio" value="1"> 已婚
+										<input type="radio" name="marital_situatio" value="1"> 离异
 									</label>
 								</div>
 							</div>
@@ -194,7 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="form-group">
 							<label for="edit-detail">描述 <span class="form-required">*</span></label>
-							<textarea class="form-control bio" id="detail" name="detail" placeholder="" rows="3"></textarea>
+							<textarea class="form-control bio" id="detail" name="detail" placeholder="" rows="3" required></textarea>
 						</div>
 						<div class="form-actions">
 							<center><input type="submit" id="edit-submit" value="注册" class="btn_1 submit"></center>

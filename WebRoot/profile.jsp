@@ -189,7 +189,7 @@
 												<c:when test="${u.marital_situatio=='0'}">
 													未婚		
 												</c:when>
-												<c:otherwise>已婚</c:otherwise>
+												<c:otherwise>离异</c:otherwise>
 											</c:choose>							
 										</td>
 									</tr>
@@ -253,7 +253,7 @@
 																<c:when test="${u.marital_situatio=='0'}">
 																	未婚		
 																</c:when>
-																<c:otherwise>已婚</c:otherwise>
+																<c:otherwise>离异</c:otherwise>
 															</c:choose>					
 														</td>
 													</tr>

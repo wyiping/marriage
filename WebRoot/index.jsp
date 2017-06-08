@@ -15,7 +15,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Custom Theme files -->
     <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -31,11 +31,68 @@
             });
         });
     </script>
+    <style>
+		a, img {
+			border:0;
+		}
+		
+		/* Carousel */
+		#carousel1 {
+			width:960px;
+			height:400px;
+			overflow:hidden;
+			position:relative;
+			border-bottom:solid 1px #d8d9da;
+			margin:0 auto;
+		}
+		#carousel1 img {
+			border:none;
+			width:240px;
+			height:180px;
+		}
+		#carousel1 #title-text {
+			font-size:22px;
+			margin:10px 20px 0 0;
+			padding:0;
+			text-align:right;
+		}
+		#carousel1 #alt-text {
+			font-size:14px;
+			margin:5px 20px 0 0;
+			padding:0;
+			text-align:right;
+		}
+		#carousel1 #user-c {
+			padding:0;
+			position:absolute;
+			right:15px;
+			bottom:10px;
+		}
+		#carousel1 .carouselLeft, #carousel1 .carouselRight {
+			position:absolute;
+			bottom:20px;
+			width:29px;
+			height:30px;
+			overflow:hidden;
+			cursor:pointer;
+		}
+		#carousel1 .carouselLeft {
+			right:60px;
+			background:url(images/templatemo_slider_right.png) no-repeat;
+		}
+		#carousel1 .carouselRight {
+			right:808px;
+			background:url(images/templatemo_slider_left.png) no-repeat;
+		}
+		</style>
+		<script type="text/JavaScript" src="js/CloudCarousel.1.0.5.js"></script>
+		<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script><!--鼠标滚动插件-->
+    
 </head>
 
 <body>
     <!-- ============================  Navigation Start =========================== -->
-    <div class="navbar navbar-inverse-blue navbar">
+    <nav class="navbar navbar-inverse-blue navbar">
         <div class="navbar-inner">
             <div class="container">
                 <div class="navigation">
@@ -125,7 +182,7 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-    </div>
+    </nav>
     <!-- end navbar-inverse-blue -->
     <div class="banner">
         <div class="profile_search">
@@ -159,8 +216,8 @@
                             <label class="gender_1">婚姻状态 :</label>
                             <div class="age_box1" style="max-width: 100%; display: inline-block;">
                                 <select name="marital_situatio">
-                                    <option value="0">单身</option>
-                                    <option value="1">已婚</option>
+                                    <option value="0">未婚</option>
+                                    <option value="1">离异</option>
                                 </select>
                             </div>
                         </div>
@@ -187,22 +244,15 @@
                 <i class="fa fa-heart grey-heart"></i>
                 <span class="grey-line"></span>
             </div>
-            <ul id="flexiselDemo3">
+            <div id="carousel1">
             <c:forEach items="${users}" var="u">
-                <li>
-                    <div class="col_1">
-                        <a href="<%=basePath%>home?cmd=profile&id=${u.userid}">
-                            <img src="<%=basePath%>images/avatar/${u.avatar}" class="hover-animation image-zoom-in img-responsive" onerror="this.src='<c:choose><c:when test="${u.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
-                            <h3>
-                                <span class="m_3">用户 ID : ${u.userid}</span><br>
-                                ${u.age}岁<br>
-                                ${u.height}CM
-                            </h3>
-                        </a>
-                    </div>
-                </li>
+            	<a href="<%=basePath%>home?cmd=profile&id=${u.userid}">
+                   <img src="<%=basePath%>images/avatar/${u.avatar}" class="cloudcarousel"  onerror="this.src='<c:choose><c:when test="${u.sex=='male'}">images/boy.png</c:when><c:otherwise>images/girl.png</c:otherwise></c:choose>'"/>
+               </a>
             </c:forEach>
-            </ul>
+            <div id="but1" class="carouselLeft"></div>
+			<div id="but2" class="carouselRight"></div>
+            </div>
             <script type="text/javascript">
                 $(window).load(function () {
                     $("#flexiselDemo3").flexisel({
@@ -228,6 +278,22 @@
                         }
                     });
                 });
+                $("#carousel1").CloudCarousel({			
+					xPos:450,
+					yPos:110,
+					buttonLeft: $('#but1'),
+					buttonRight: $('#but2'),
+					altBox: $("#alt-text"),
+					titleBox: $("#title-text"),				
+					FPS:30,
+					reflHeight:86,
+					reflGap:2,
+					yRadius:40,
+					autoRotateDelay: 1200,
+					speed:0.2,
+					mouseWheel:true,
+					bringToFront:true
+				});	
             </script>
             <script type="text/javascript" src="js/jquery.flexisel.js"></script>
         </div>

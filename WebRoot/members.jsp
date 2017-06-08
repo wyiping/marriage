@@ -158,7 +158,7 @@
 						<h3 class="m_2">婚姻状态</h3>
 						<ul class="cute">
 							<li class="subitem1"><a href="#">未婚（3） </a></li>
-							<li class="subitem1"><a href="#">已婚（2） </a></li>
+							<li class="subitem1"><a href="#">离异（2） </a></li>
 						</ul>
 					</li>
 					<li class="item1">
@@ -265,7 +265,7 @@
 												<c:when test="${user.marital_situatio=='0'}">
 													未婚		
 												</c:when>
-												<c:otherwise>已婚</c:otherwise>
+												<c:otherwise>离异</c:otherwise>
 											</c:choose>										
 										</td>
 									</tr>

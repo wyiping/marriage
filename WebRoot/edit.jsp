@@ -186,7 +186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<input type="radio" name="marital_situatio" value="0" <c:if test="${!user.marital_situatio}">checked="checked"</c:if>> 未婚
 									</label>
 									<label for="radio-02" class="label_radio">
-										<input type="radio" name="marital_situatio" value="1" <c:if test="${user.marital_situatio}">checked="checked"</c:if>> 已婚
+										<input type="radio" name="marital_situatio" value="1" <c:if test="${user.marital_situatio}">checked="checked"</c:if>> 离异
 									</label>
 								</div>
 							</div>
